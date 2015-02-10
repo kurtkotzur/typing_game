@@ -16,7 +16,8 @@
 
       var ctx = canvasEl.getContext('2d');
       ctx.font = Game.FONT;
-      new Game(ctx).start();
+      var game = new Game();
+      new GameView(game, ctx).start();
     </script>
   </body>
 </html>
