@@ -8,16 +8,19 @@
 
   <body>
     <canvas style='border: thin solid black;'></canvas>
-    <script type='application/javascript' src='main.js'></script>
+    <script type='application/javascript' src='letter.js'></script>
+    <script type='application/javascript' src='game.js'></script>
+    <script type='application/javascript' src='game_view.js'></script>
+
     <script type='application/javascript'>
       var canvasEl = document.getElementsByTagName('canvas')[0];
-      canvasEl.width = Game.DIM_X;
-      canvasEl.height = Game.DIM_Y;
+      canvasEl.width = Typing.Game.DIM_X;
+      canvasEl.height = Typing.Game.DIM_Y;
 
       var ctx = canvasEl.getContext('2d');
-      ctx.font = Game.FONT;
-      var game = new Game();
-      new GameView(game, ctx).start();
+      ctx.font = Typing.Game.FONT;
+      var game = new Typing.Game();
+      new Typing.GameView(game, ctx).start();
     </script>
   </body>
 </html>
