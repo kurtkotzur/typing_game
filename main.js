@@ -17,7 +17,7 @@ Game.prototype.addLetter = function() {
   this.letters.push(new Letter({
     game: this,
     str: Game.ALPHABET[Math.floor(26 * Math.random())],
-    pos: [0, Math.random() * Game.DIM_Y],
+    pos: this.randomPosition(),
     vel: 10
   }));
 }
@@ -47,7 +47,6 @@ Game.prototype.isOutOfBounds = function(pos) {
 };
 
 Game.prototype.keyHandler = function(event) {
-  debugger
   var keyCode = event.keyCode;
   if (65 <= keyCode && keyCode <= 90) {
     this.handleLetterKeyPress(keyCode);
@@ -55,6 +54,14 @@ Game.prototype.keyHandler = function(event) {
     this.stop();
   }
 };
+
+Game.prototype.randomPosition = function() {
+  var y = Math.random() * Game.DIM_Y,
+      fontSize = Number(Game.FONT.match(/(\d+)px.*/)[1]);
+  if (y < fontSize) y = fontSize;
+  if (y > Game.DIM_Y - fontSize) y = Game.DIM_Y - fontSize;
+  return [0, y];
+}
 
 Game.prototype.removeOldestInstance = function(str) {
   var oldestIndex = false;
