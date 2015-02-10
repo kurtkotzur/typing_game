@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Typing Game
+    </title>
+  </head>
+
+  <body>
+    <canvas style='border: thin solid black;'></canvas>
+    <script type='application/javascript' src='main.js'></script>
+    <script type='application/javascript'>
+      var canvasEl = document.getElementsByTagName('canvas')[0];
+      canvasEl.width = Game.DIM_X;
+      canvasEl.height = Game.DIM_Y;
+
+      var ctx = canvasEl.getContext('2d');
+      ctx.font = Game.FONT;
+      new Game(ctx).start();
+    </script>
+  </body>
+</html>
