@@ -3,7 +3,7 @@ var Game = function(ctx) {
   this.letters = [];
   this.score = 0;
   this.letterCount = 0;
-  this.newLetterInterval = 200;
+  this.newLetterInterval = 10;
   this.frameCount = 0;
 };
 
@@ -18,7 +18,7 @@ Game.prototype.addLetter = function() {
     game: this,
     str: Game.ALPHABET[Math.floor(26 * Math.random())],
     pos: [0, Math.random() * Game.DIM_Y],
-    vel: 1
+    vel: 10
   }));
 }
 
@@ -81,7 +81,7 @@ Game.prototype.start = function() {
   this.timerId = setInterval(function() {
     game.step();
     game.draw();
-  }, 1000 / this.FPS);
+  }, 1000 / Game.FPS);
   this.bindKeyHandlers();
 };
 
